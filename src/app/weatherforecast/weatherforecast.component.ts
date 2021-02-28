@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class WeatherforecastComponent implements OnInit {
 
   weatherF:any;
+  users:any;
 
   constructor(private http:HttpClient) {
 
@@ -16,6 +17,7 @@ export class WeatherforecastComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWeatherForecasts();
+    this.getUsers();
   }  
 
   getWeatherForecasts()
@@ -25,6 +27,15 @@ export class WeatherforecastComponent implements OnInit {
       console.log(this.weatherF);
     },error => {
       console.log('Error occurred',error);
+    });
+  }
+
+  getUsers()
+  {
+    this.http.get("https://localhost:44324/api/users").subscribe(response => {
+      this.users=response;
+    },error => {
+      console.log("Error occurred while getting users: ",error);
     });
   }
 }

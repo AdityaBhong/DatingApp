@@ -1,3 +1,17 @@
-<p *ngFor="let weather of weatherF">
+<div class="row">
+   <h4>List of Weather Forecasts</h4>
+</div>
+
+<li *ngFor="let weather of weatherF">
    {{weather.summary}} : {{weather.temperatureC}}
-</p>
+</li>
+
+<div class="row">
+   <h4>List of Users</h4>
+</div>
+
+<div>
+   <li *ngFor="let user of users">
+      {{user.username}}
+   </li>
+</div>
